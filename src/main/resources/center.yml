@@ -1,0 +1,21 @@
+spring:
+  profiles:
+    active: prod
+  application:
+    name: contract-center
+  cloud:
+    nacos:
+      config:
+        server-addr: ${NACOS_URL:http://testnacos.showcon.cn}
+        namespace: ${NACOS_NAMESPACE:dev-clm-2-1}
+        file-extension: yaml
+        extension-configs:
+          - data-id: variable.yaml
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  mapper-locations: classpath:mybatis/*.xml
+  type-aliases-package: cn.showcon.contract.dto,cn.showcon.contract.entity
+
+server:
+  port: 8096
