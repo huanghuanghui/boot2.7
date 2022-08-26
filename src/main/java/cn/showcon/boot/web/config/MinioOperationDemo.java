@@ -21,14 +21,10 @@ public class MinioOperationDemo {
     private static final String BUCKET = "hhh-test";
 
     public void upload(String path, InputStream file) throws Exception {
-        long partSize = -1;
-        if (file.available() >= 50 * 1024 * 1024) {
-            partSize = 50 * 1024 * 1024;
-        }
         minioClient.putObject(PutObjectArgs.builder()
                 .bucket(BUCKET)
                 .object(path)
-                .stream(file, file.available(), partSize)
+                .stream(file, file.available(), -1)
                 .build());
     }
 
