@@ -12,7 +12,7 @@ public class MinioConfiguration1 {
     public MinioClient minioClient(){
 
         MinioClient minioClient=MinioClient.builder()
-                .endpoint("http://ip:port")
+                .endpoint("http://xxx:9000")
                 .credentials("admin", "123456789")
                 .build();
         return minioClient;
