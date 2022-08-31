@@ -11,7 +11,7 @@ public class MinioConfiguration2 {
     @Bean(name = "minioClientDemo")
     public MinioClient minioClient(){
         MinioClient minioClient=MinioClient.builder()
-                .endpoint("http://10.36.36.50:9000")
+                .endpoint("http://ip:port")
                 .credentials("admin", "123456789")
                 .build();
         return minioClient;
