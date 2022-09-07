@@ -71,5 +71,12 @@ group 第一次接入且执行请求
     AbstractHandlerMethodAdapter->ServletInvocableHandlerMethod:invokeAndHandle(webRequest, mavContainer)
     ServletInvocableHandlerMethod->InvocableHandlerMethod:doInvoke(Object... args)#反射执行请求
     end
+    group 处理返回值
+    InvocableHandlerMethod->ServletInvocableHandlerMethod:执行请求完成返回
+    ServletInvocableHandlerMethod->HandlerMethodReturnValueHandlerComposite:处理返回值
+    HandlerMethodReturnValueHandlerComposite->RequestResponseBodyMethodProcessor:处理返回值
+    RequestResponseBodyMethodProcessor->AbstractMessageConverterMethodProcessor:((HttpMessageConverter) converter).write(body, selectedMediaType, outputMessage)
+    AbstractMessageConverterMethodProcessor->AbstractHttpMessageConverter:((HttpMessageConverter) converter).write(body, selectedMediaType, outputMessage)
+    end
 end
 @enduml
