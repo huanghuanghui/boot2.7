@@ -1,5 +1,6 @@
 package cn.showcon.boot.web;
 
+import cn.showcon.boot.MyResponse;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -7,9 +8,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class TestController {
 
 
-    @GetMapping("/get")
-    public String getContractSnapshot() {
-        return "success";
+    @GetMapping("/getXxx")
+    public MyResponse getXxx() {
+        return new MyResponse(200,"success");
     }
 
 }
