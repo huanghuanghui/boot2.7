@@ -1,0 +1,4 @@
+FROM panokurka/java17-graalvm
+ENV K8S_USERNAME_SYSTEM=K8S_USERNAME_SYSTEM K8S_PASSWORD_SYSTEM=K8S_PASSWORD_SYSTEM
+COPY target/app.jar /app.jar
+ENTRYPOINT ["java","-jar","/app.jar"]

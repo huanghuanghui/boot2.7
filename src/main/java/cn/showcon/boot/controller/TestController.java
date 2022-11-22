@@ -1,7 +1,12 @@
 package cn.showcon.boot.controller;
 
+import cn.showcon.boot.response.MyResponse;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * <p>
@@ -15,7 +20,14 @@ import org.springframework.web.bind.annotation.RestController;
 public class TestController {
 
     @GetMapping("/test")
-    public String test(){
-        return "TEST_SUCCESS";
+    public void test(@RequestParam Integer num)throws Exception{
+        List<MyResponse> myResponseList = new ArrayList<>();
+        for (int i = 0; i < 1024 * 1024 * 1024; i++) {
+            if (i%num==0){
+                System.out.println("---------sleep 100 add num object:"+num);
+                Thread.sleep(100);
+            }
+            myResponseList.add(new MyResponse(200, "success"));
+        }
     }
 }
