@@ -1,0 +1,19 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+WEB ->  EXECUTION: 续签合同
+EXECUTION -> DRAFT : 新建续签合同
+DRAFT -> DRAFT : 使用历史合同创建合同接口，查询原合同数据，复制文件
+DRAFT -> WEB : 将历史合同数据提供给前端
+WEB -> DRAFT : 修改合同信息，点击新建合同
+DRAFT -> EXECUTION : 校验当前用户是否为履行合同负责人
+DRAFT -> DRAFT : 修改旧合同状态为续签中
+DRAFT -> CONTRACT_CENTER : 新合同同步合同中心，旧合同状态置为续签中
+CONTRACT_CENTER -> 审批签署归档履行 : 新合同按照完成合同生命周期流程
+EXECUTION -> CONTRACT_CENTER :履行完结合同通知合同中心旧完结，新合同保留在履行中
+
+
+
+@enduml
