@@ -1,5 +1,8 @@
 package cn.showcon.boot.controller;
 
+import cn.showcon.boot.entity.User;
+import cn.showcon.boot.mapper.UserDao;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -13,9 +16,12 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 public class TestController {
+    @Autowired
+    private UserDao userDao;
 
     @GetMapping("/test")
     public String test(){
-        return "TEST_SUCCESS";
+        User userById = userDao.getUserById(1L);
+        return userById.getName();
     }
 }

@@ -5,7 +5,7 @@
 <mapper namespace="cn.showcon.boot.mapper.UserDao">
 
     <sql id="columns">
-        id, username, password
+        id, age, name
     </sql>
 
 
