@@ -2,6 +2,7 @@ package cn.showcon.boot.entity;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -16,6 +17,7 @@ import java.math.RoundingMode;
  */
 @Getter
 @Setter
+@ToString
 public class User {
 
     private Integer id;
